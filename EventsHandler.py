@@ -11,3 +11,6 @@ class EventsHandler:
                 self.not_exit_was_pressed = False
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 self.not_exit_was_pressed = False
+
+    def handle_line_events(self,line):
+        pass
