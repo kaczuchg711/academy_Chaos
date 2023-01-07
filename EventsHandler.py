@@ -28,14 +28,24 @@ class EventsHandler:
         self.circle: Circle
         #
         self.move_Ball()
-
-        if self.Ball.pos[1] == 0:
+        if self.Ball.pos[1] < self.Ball.radius and self.Ball.pos[1]:
             print("Ball cross top side")
-        elif self.Ball.pos[1] == self.box.height:
+        #     80   280
+            self.Ball.angle = 360 - self.Ball.angle
+        elif self.Ball.pos[1] > self.box.height - self.Ball.radius:
+            self.Ball.angle = 360 - self.Ball.angle
             print("Ball cross bot side")
+        elif self.Ball.pos[0] < self.Ball.radius:
+            self.Ball.angle = 180 - self.Ball.angle
+            print("Ball cross left side")
+        elif self.Ball.pos[0] > self.box.width - self.Ball.radius :
+            self.Ball.angle = 180 - self.Ball.angle
+            print("Ball cross right side")
 
-    # new_x = old_x + (speed * math.cos(angle_in_radians))
-    # new_y = old_y + (speed * math.sin(angle_in_radians))
+
+
+
+
     def move_Ball(self):
         if self.Ball.angle == 0:
             self.Ball.pos[0] = self.Ball.pos[0] + self.Ball.speed
